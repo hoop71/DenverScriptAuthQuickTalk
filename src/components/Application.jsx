@@ -12,7 +12,7 @@ const Application = ({ auth, signIn, signOut, users }) => {
     <Container>
       <Advertisement
         unit="top banner"
-        test="🔥🔥🔥🔥 Auth with Firebase in 8mins or less 🔥🔥🔥🔥"
+        test="🔥🔥🔥🔥 8 Minute Auth with Firebase 🔥🔥🔥🔥"
       />
 
       <Menu>
