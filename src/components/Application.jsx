@@ -2,7 +2,7 @@ import React from 'react';
 import User from './User';
 import './Application.css';
 import { Button } from 'semantic-ui-react';
-import { Advertisement, Container, Grid, Menu } from 'semantic-ui-react';
+import { Advertisement, Container, Grid, Segment, Responsive } from 'semantic-ui-react';
 
 const Application = ({ auth, signIn, signOut, users }) => {
   const signOutAction = () => {
@@ -10,12 +10,8 @@ const Application = ({ auth, signIn, signOut, users }) => {
   };
   return (
     <Container>
-      <Advertisement
-        unit="top banner"
-        test="🔥🔥🔥🔥 8 Minute Auth with Firebase 🔥🔥🔥🔥"
-      />
-
-      <Menu>
+      <Advertisement unit="top banner" test="🔥🔥🔥🔥 8 Minute Auth with Firebase 🔥🔥🔥🔥" />
+      <div class="ui message">
         {auth.status === 'ANONYMOUS' &&
           auth.status !== 'LOADING' && (
             <Button onClick={signIn} color="green" content="Sign In" icon="sign in alternate" />
@@ -29,14 +25,15 @@ const Application = ({ auth, signIn, signOut, users }) => {
               icon="sign out alternate"
             />
           )}
-      </Menu>
+      </div>
       <Grid>
-        <Grid.Row>
+        <Grid.Row centered>
           {users &&
             users.map(user => {
               return (
-                <Grid.Column key={user.photoURL}>
+                <Grid.Column mobile={16} tablet={8} computer={5} key={user.photoURL}>
                   <User
+                    centered
                     key={user.photoURL}
                     displayName={user.displayName}
                     photoURL={user.photoURL}

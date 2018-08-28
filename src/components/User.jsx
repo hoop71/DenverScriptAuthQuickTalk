@@ -4,7 +4,12 @@ import { Card, Image } from 'semantic-ui-react';
 
 const User = ({ displayName, modified, photoURL }) => (
   <Card>
-    <Image src={photoURL} />
+    <Image
+      onLoad={() => {
+        console.log(photoURL.naturalWidth);
+      }}
+      src={photoURL}
+    />
     <Card.Content>
       <Card.Header>{displayName}</Card.Header>
     </Card.Content>
